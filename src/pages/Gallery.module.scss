@@ -1,0 +1,92 @@
+@import "../styles/variables";
+
+$card-1440: 392px;
+$card-1280: 392px;
+$card-768: 352px;
+$card-320: 280px;
+/* Контейнер страницы */
+.container {
+  padding: 0 $padding-320;
+  max-width: $container-320;
+
+  @media (min-width: 768px) {
+    padding: 0 $padding-768;
+    max-width: $container-768;
+  }
+
+  @media (min-width: 1280px) {
+    padding: 0 $padding-1280;
+    max-width: $container-1280;
+  }
+
+  @media (min-width: 1440px) {
+    padding: 0 $padding-1440;
+    max-width: $container-1440;
+  }
+}
+
+/* Сетка карточек */
+.paintings {
+  display: grid;
+  gap: $gutter-320;
+  grid-template-columns: repeat($columns-320, 1fr);
+
+  @media (min-width: 768px) {
+    gap: $gutter-768;
+    grid-template-columns: repeat($columns-768, 1fr);
+  }
+
+  @media (min-width: 1280px) {
+    gap: $gutter-1280;
+    grid-template-columns: repeat($columns-1280, 1fr);
+  }
+
+  @media (min-width: 1440px) {
+    gap: $gutter-1440;
+    grid-template-columns: repeat($columns-1440, 1fr);
+  }
+}
+
+/* Карточка */
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* Каждая карточка занимает разные span по колонкам */
+  grid-column: span 6; // по умолчанию (для 320px)
+  @media (min-width: 768px) {
+    grid-column: span 4;
+  }
+  @media (min-width: 1280px) {
+    grid-column: span 4;
+  }
+  @media (min-width: 1440px) {
+    grid-column: span 4;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 8px;
+  }
+
+  h3 {
+    font-size: 16px;
+    text-align: center;
+    margin: 4px 0;
+  }
+}
+
+/* MUI Pagination */
+:global {
+  .MuiPaginationItem-root {
+    &:focus,
+    &.Mui-focusVisible {
+      outline: none !important;
+      box-shadow: none !important;
+    }
+  }
+}

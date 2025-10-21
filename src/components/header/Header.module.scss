@@ -1,0 +1,54 @@
+@import "../../styles/variables";
+
+$margin-1440-bottom: 44px;
+$margin-1280-bottom: 44px;
+$margin-768-bottom: 44px;
+$margin-320-bottom: 27px;
+
+.header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: $height-320;
+  padding: 0 $padding-320;
+  width: 100%;
+  max-width: auto;
+  margin-bottom: $margin-320-bottom;
+
+  @media (min-width: 768px) {
+    height: $height-768;
+    padding: 0 $padding-768;
+    max-width: auto;
+    margin-bottom: $margin-768-bottom;
+  }
+
+  @media (min-width: 1280px) {
+    height: $height-1280;
+    padding: 0 $padding-1280;
+    max-width: auto;
+    margin-bottom: $margin-1280-bottom;
+  }
+
+  @media (min-width: 1440px) {
+    height: $height-1440;
+    padding: 0 $padding-1440;
+    max-width: auto;
+    margin-bottom: $margin-1440-bottom;
+  }
+}
+
+.darkIcon {
+  color: $color-p-light-gray;
+}
+
+.lightIcon {
+  color: $color-p-dark-gray;
+}
