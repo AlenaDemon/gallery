@@ -3,7 +3,7 @@ import { Pagination, Stack } from "@mui/material";
 import styles from "./Gallery.module.scss";
 import { useGetPaintingsQuery } from "@/services/galleryApi";
 import Search from "@/components/search/Search";
-import Card from "@/components/card/Card";
+import Card from "@/components/paintingCard/PaintingCard";
 import Loader from "@/components/loader/Loader";
 import { useTheme } from "@/provides/ThemeContext";
 

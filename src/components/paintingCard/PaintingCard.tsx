@@ -1,7 +1,7 @@
 import { Painting } from "@/services/galleryApi";
 import React from "react";
 import path from "../routes/path";
-import styles from './Card.module.scss'
+import styles from './PaintingCard.module.scss'
 import { useTheme } from "@/provides/ThemeContext";
 interface ICard {
   painting: Painting;
