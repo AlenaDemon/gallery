@@ -1,0 +1,162 @@
+@use "../../styles/variables" as *;
+
+$card-info-w-1440: 300px;
+$card-info-w-1280: 300px;
+$card-info-w-768: 300px;
+$card-info-w-320: 236px;
+
+$card-info-h-1440: 82px;
+$card-info-h-1280: 82px;
+$card-info-h-768: 66px;
+$card-info-h-320: 45px;
+
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+
+  grid-column: span 6;
+  @media (min-width: 768px) {
+    grid-column: span 4;
+  }
+  @media (min-width: 1280px) {
+    grid-column: span 4;
+  }
+  @media (min-width: 1440px) {
+    grid-column: span 4;
+  }
+
+  .imageWrapper {
+    overflow: hidden;
+    position: relative;
+
+    img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.5s ease;
+      display: block;
+    }
+  }
+
+  .overlay {
+    position: absolute;
+    width: $card-info-w-320;
+    height: $card-info-h-320;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    
+    @media (min-width: 768px) {
+      width: $card-info-w-768;
+      height: $card-info-h-768;
+    }
+    @media (min-width: 1280px) {
+      width: $card-info-w-1280;
+      height: $card-info-h-1280;
+    }
+    @media (min-width: 1440px) {
+      width: $card-info-w-1440;
+      height: $card-info-h-1440;
+    }
+
+    h3,
+    p {
+      line-height: 100%;
+      text-transform: uppercase;
+      padding-left: 12px;
+    }
+
+    h3 {
+      font-weight: 500;
+      font-size: 12px;
+      font-family: 'Cormorant SC', serif;
+      @media (min-width: 768px) {
+        font-size: 16px;
+      }
+    }
+
+    p {
+      font-weight: 700;
+      font-size: 8px;
+      padding-top: 12px;
+      @media (min-width: 768px) {
+        font-size: 12px;
+      }
+    }
+
+    &.dark {
+      background-color: $color-p-black;
+      h3 {
+        color: $color-p-white;
+      }
+      p {
+        color: $color-accent-gold;
+      }
+    }
+
+    &.light {
+      background-color: $color-p-white;
+      h3 {
+        color: $color-p-black;
+      }
+      p {
+        color: $color-accent-red;
+      }
+    }
+  }
+  
+  .name {
+    transform: translateY(0);
+    opacity: 1;
+    transition: transform 0.5s ease, opacity 0.4s ease;
+  }
+  .author {
+    transform: translatex(-120%);
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.4s ease;
+    position: absolute;
+  }
+
+  .line {
+    position: absolute;
+    border-left: none;
+    height: 42px;
+  }
+
+  .darkLine {
+    @media (min-width: 1440px) {
+      border-left: 2px solid $color-accent-gold;
+    } 
+  }
+
+  .lightLine {
+    @media (min-width: 1440px) {
+      border-left: 2px solid $color-accent-red;
+    } 
+  }
+
+  &:hover {
+    .name {
+      transform: translateY(120%);
+      opacity: 0;
+    }
+    .author {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    img {
+      transform: scale(1.05);
+    }
+  }
+}

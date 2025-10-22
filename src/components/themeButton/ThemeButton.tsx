@@ -1,9 +1,10 @@
+import React from "react";
 import { useTheme } from "../../provides/ThemeContext";
 import { DarkSvg } from "../../assets/theme/dark";
 import { LightSvg } from "../../assets/theme/light";
 import styles from "./ThemeButton.module.scss";
 
-const ThemeButton = () => {
+const ThemeButton: React.FC = () => {
   const { isDark, toggleTheme } = useTheme();
   return (
     <button

@@ -1,9 +1,10 @@
+import React from "react";
 import { LogoSvg } from "@/assets/logo";
 import { useTheme } from "../../provides/ThemeContext";
 import styles from "./Header.module.scss";
 import ThemeButton from "../themeButton/ThemeButton";
 
-const Header = () => {
+const Header: React.FC = () => {
   const { isDark } = useTheme();
 
   return (

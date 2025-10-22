@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import styles from "./Search.module.scss";
 import { useTheme } from "../../provides/ThemeContext";
@@ -7,7 +8,7 @@ import { CrossSvg } from "@/assets/search/cross";
 interface ISearch {
   query: string;
   setQuery: (value: string) => void;
-  setPage: (valie: number) => void;
+  setPage: (value: number) => void;
 }
 
 const Search: React.FC<ISearch> = ({ query, setQuery, setPage }) => {

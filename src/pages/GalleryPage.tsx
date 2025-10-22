@@ -3,39 +3,41 @@ import { Pagination, Stack } from "@mui/material";
 import styles from "./Gallery.module.scss";
 import { useGetPaintingsQuery } from "@/services/galleryApi";
 import Search from "@/components/search/Search";
+import Card from "@/components/card/Card";
+import Loader from "@/components/loader/Loader";
+import { useTheme } from "@/provides/ThemeContext";
 
 const GalleryPage: React.FC = () => {
+  const {isDark} = useTheme()
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
   const limit = 6;
-  const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
-  const { data, isLoading, isError } = useGetPaintingsQuery({ page, limit, query });
+  const { data, isLoading } = useGetPaintingsQuery({ page, limit, query });
 
+  if (isLoading) {
+    return <Loader />
+  }
   const totalPages = data?.total ? Math.ceil(data.total / limit) : 0;
-
   return (
     <div className={styles.container}>
       <Search query={query} setQuery={setQuery} setPage={setPage} />
 
       <div className={styles.paintings}>
-        {isLoading ? (
-          <p>Loading...</p>
-        ) : isError ? (
-          <p>Ошибка загрузки данных</p>
-        ) : data?.data.length === 0 ? (
-          <p>Нет результатов</p>
+        {data?.data.length === 0 ? (
+          <div className={`${styles.noMatches} ${isDark ? styles.dark : styles.light}`}>
+            <h1>No matches for <span>{query}</span></h1>
+            <p>Please try again with a different spelling or keywords.</p>
+          </div>
         ) : (
           data?.data.map((p) => (
-            <div key={p.id} className={styles.card}>
-              {p.imageUrl && <img src={`${baseUrl}${p.imageUrl}`} alt={p.name} width="100%" />}
-            </div>
+            <Card painting={p} />
           ))
         )}
       </div>
 
       <Stack spacing={2} marginTop={2} alignItems="center">
-        {totalPages > 0 && (
+        {totalPages > 1 && (
           <Pagination
             count={totalPages}
             page={page}

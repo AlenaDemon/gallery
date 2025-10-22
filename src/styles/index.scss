@@ -1,18 +1,26 @@
-@import "./variables";
+@use "./variables" as *;
 
 * {
   margin: 0;
   padding: 0;
 }
 
+html, body, #root, .app {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   font-family: "Inter", sans-serif;
+  height: 100%;
 }
 
 .app.dark {
   background-color: $color-p-black;
+  min-height: 100vh;
 }
 
 .app.light {
   background-color: $color-p-white;
+  min-height: 100vh;
 }

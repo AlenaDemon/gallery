@@ -1,14 +1,16 @@
-@import "../styles/variables";
+@use "../styles/variables" as *;
 
 $card-1440: 392px;
 $card-1280: 392px;
 $card-768: 352px;
 $card-320: 280px;
-/* Контейнер страницы */
+
 .container {
   padding: 0 $padding-320;
   max-width: $container-320;
-
+  margin: 0 auto 50px auto;
+  height: auto;
+  
   @media (min-width: 768px) {
     padding: 0 $padding-768;
     max-width: $container-768;
@@ -25,7 +27,7 @@ $card-320: 280px;
   }
 }
 
-/* Сетка карточек */
+
 .paintings {
   display: grid;
   gap: $gutter-320;
@@ -47,46 +49,93 @@ $card-320: 280px;
   }
 }
 
-/* Карточка */
-.card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  /* Каждая карточка занимает разные span по колонкам */
-  grid-column: span 6; // по умолчанию (для 320px)
-  @media (min-width: 768px) {
-    grid-column: span 4;
-  }
-  @media (min-width: 1280px) {
-    grid-column: span 4;
-  }
-  @media (min-width: 1440px) {
-    grid-column: span 4;
-  }
-
-  img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 4px;
-    margin-bottom: 8px;
+:global {
+  .app.dark {
+    .MuiPaginationItem-root {
+      color: $color-p-light-gray !important;
+      &:focus,
+      &.Mui-focusVisible {
+        outline: none !important;
+        box-shadow: none !important;
+      }
+      &:hover {
+        border-bottom: 1px solid $color-p-light-gray;
+      }
+      &.Mui-selected {
+        background-color: $color-s-dark !important;
+      }
+      
+    }
   }
 
-  h3 {
-    font-size: 16px;
-    text-align: center;
-    margin: 4px 0;
+  .app.light {
+    .MuiPaginationItem-root {
+      color: $color-p-dark-gray !important;
+      &:focus,
+      &.Mui-focusVisible {
+        outline: none !important;
+        box-shadow: none !important;
+      }
+      &:hover {
+        border-bottom: 1px solid $color-p-dark-gray;
+      }
+      &.Mui-selected {
+        background-color: $color-s-gray !important;
+      }
+      
+    }
   }
 }
 
-/* MUI Pagination */
-:global {
-  .MuiPaginationItem-root {
-    &:focus,
-    &.Mui-focusVisible {
-      outline: none !important;
-      box-shadow: none !important;
+.noMatches {
+  grid-column: 1 / -1; 
+  padding: 10px 20px;
+  
+  h1 {
+    font-size: 16px;
+    line-height: 140%;
+    font-weight: 300;
+    
+    padding: 10px 0;
+
+    span {
+      font-weight: 500;
     }
+  }
+
+  p {
+    line-height: 140%;
+    font-weight: 300;
+    font-size: 14px;
+  }
+}
+
+.dark {
+  h1 {
+    color: $color-s-gray;
+
+    span {
+      color: $color-p-light-gray;
+    }
+  }
+  
+
+  p {
+    color: $color-s-gray;
+  }
+}
+
+.light {
+  h1 {
+    color: $color-p-dark-gray;
+
+    span {
+      color: $color-s-dark;
+    }
+  }
+  
+
+  p {
+    color: $color-p-dark-gray;
   }
 }

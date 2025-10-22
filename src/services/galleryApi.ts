@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import path from "@/components/routes/path";
 
 export interface Painting {
   imageUrl: string;
@@ -12,7 +13,7 @@ export interface Painting {
 
 export const galleryApi = createApi({
   reducerPath: "galleryApi",
-  baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_API_BASE_URL }),
+  baseQuery: fetchBaseQuery({ baseUrl: path.baseUrl }),
   endpoints: (builder) => ({
     getPaintings: builder.query<
       { data: Painting[]; total: number },

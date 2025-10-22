@@ -1,7 +1,7 @@
 import GalleryPage from "./pages/GalleryPage";
 import Header from "./components/header/Header";
 import { useTheme } from "./provides/ThemeContext";
-
+import React from "react";
 const App: React.FC = () => {
   const { isDark } = useTheme();
 
