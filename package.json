@@ -11,7 +11,7 @@
   "bugs": {
     "url": "https://github.com/AlenaDemon/gallery/issues"
   },
-  "homepage": "https://github.com/AlenaDemon/gallery#readme",
+  "homepage": "https://github.com/AlenaDemon/gallery",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -54,6 +54,6 @@
     "globals": "^16.4.0",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.45.0",
-    "vite": "^7.1.7"
+    "vite": "^7.1.11"
   }
 }
