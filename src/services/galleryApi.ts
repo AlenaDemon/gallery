@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import path from "@/components/routes/path";
+import path from "@/routes/path";
 
 export interface Painting {
   imageUrl: string;
@@ -9,7 +9,16 @@ export interface Painting {
   locationId: number;
   created: string;
 }
-// authorId:1, created: "1850", id: 1, imageUrl: "/images/The_ninth_wave.jpeg", locationId: 1,name: "The ninth wave"
+
+export interface Author {
+  id: number;
+  name: string;
+}
+
+export interface Location {
+  id: number;
+  location: string;
+}
 
 export const galleryApi = createApi({
   reducerPath: "galleryApi",
@@ -28,7 +37,13 @@ export const galleryApi = createApi({
         return { data: response, total: Number(total) };
       },
     }),
+    getAuthors: builder.query<Author[], void>({
+      query: () => "authors",
+    }),
+    getLocations: builder.query<Location[], void>({
+      query: () => "locations",
+    }),
   }),
 });
 
-export const { useGetPaintingsQuery } = galleryApi;
+export const { useGetPaintingsQuery, useGetAuthorsQuery, useGetLocationsQuery } = galleryApi;

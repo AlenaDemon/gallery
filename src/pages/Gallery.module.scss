@@ -10,7 +10,7 @@ $card-320: 280px;
   max-width: $container-320;
   margin: 0 auto 50px auto;
   height: auto;
-  
+
   @media (min-width: 768px) {
     padding: 0 $padding-768;
     max-width: $container-768;
@@ -26,7 +26,6 @@ $card-320: 280px;
     max-width: $container-1440;
   }
 }
-
 
 .paintings {
   display: grid;
@@ -64,7 +63,6 @@ $card-320: 280px;
       &.Mui-selected {
         background-color: $color-s-dark !important;
       }
-      
     }
   }
 
@@ -82,20 +80,19 @@ $card-320: 280px;
       &.Mui-selected {
         background-color: $color-s-gray !important;
       }
-      
     }
   }
 }
 
 .noMatches {
-  grid-column: 1 / -1; 
+  grid-column: 1 / -1;
   padding: 10px 20px;
-  
+
   h1 {
     font-size: 16px;
     line-height: 140%;
     font-weight: 300;
-    
+
     padding: 10px 0;
 
     span {
@@ -118,7 +115,6 @@ $card-320: 280px;
       color: $color-p-light-gray;
     }
   }
-  
 
   p {
     color: $color-s-gray;
@@ -133,7 +129,6 @@ $card-320: 280px;
       color: $color-s-dark;
     }
   }
-  
 
   p {
     color: $color-p-dark-gray;

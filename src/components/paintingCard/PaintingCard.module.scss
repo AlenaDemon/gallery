@@ -10,7 +10,6 @@ $card-info-h-1280: 82px;
 $card-info-h-768: 66px;
 $card-info-h-320: 45px;
 
-
 .card {
   display: flex;
   flex-direction: column;
@@ -56,7 +55,7 @@ $card-info-h-320: 45px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    
+
     @media (min-width: 768px) {
       width: $card-info-w-768;
       height: $card-info-h-768;
@@ -80,7 +79,7 @@ $card-info-h-320: 45px;
     h3 {
       font-weight: 500;
       font-size: 12px;
-      font-family: 'Cormorant SC', serif;
+      font-family: "Cormorant SC", serif;
       @media (min-width: 768px) {
         font-size: 16px;
       }
@@ -115,16 +114,20 @@ $card-info-h-320: 45px;
       }
     }
   }
-  
+
   .name {
     transform: translateY(0);
     opacity: 1;
-    transition: transform 0.5s ease, opacity 0.4s ease;
+    transition:
+      transform 0.5s ease,
+      opacity 0.4s ease;
   }
   .author {
     transform: translatex(-120%);
     opacity: 0;
-    transition: transform 0.5s ease, opacity 0.4s ease;
+    transition:
+      transform 0.5s ease,
+      opacity 0.4s ease;
     position: absolute;
   }
 
@@ -137,13 +140,13 @@ $card-info-h-320: 45px;
   .darkLine {
     @media (min-width: 1440px) {
       border-left: 2px solid $color-accent-gold;
-    } 
+    }
   }
 
   .lightLine {
     @media (min-width: 1440px) {
       border-left: 2px solid $color-accent-red;
-    } 
+    }
   }
 
   &:hover {
