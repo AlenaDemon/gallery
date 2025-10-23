@@ -11,7 +11,7 @@
   "bugs": {
     "url": "https://github.com/AlenaDemon/gallery/issues"
   },
-  "homepage": "https://github.com/AlenaDemon/gallery",
+  "homepage": "https://AlenaDemon.github.io/gallery",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
