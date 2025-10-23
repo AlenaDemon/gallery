@@ -23,7 +23,7 @@ const Card: React.FC<ICard> = ({ painting, authors, locations }) => {
       <div className={styles.imageWrapper}>
         {!isLoaded && (
           <div className={styles.loaderWrapper}>
-            <Loader /> {/* Можно передать размер или стиль */}
+            <Loader />
           </div>
         )}
 
